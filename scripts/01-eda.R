@@ -4,9 +4,12 @@
 
 library(tidyverse)
 
+setwd("C:/Users/windows/Documents/proyecto-mp2.5-santiago")
+getwd()
+
 # Importar datos
 datos_mp25 <- read_delim(
-  "datos/mp2.5-parque-ohiggins-2026.csv",
+  "datos/sinca/SINCA_Parque_OHiggins_MP25_2026.csv",
   delim = ";"
 )
 

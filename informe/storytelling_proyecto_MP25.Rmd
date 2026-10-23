@@ -79,6 +79,31 @@ Finalmente, se explorarán las semejanzas y diferencias entre las mediciones de 
 
 Para comunicar los resultados se prevé utilizar series temporales, diagramas de caja y gráficos de dispersión, seleccionados según las características de los datos y las preguntas del análisis. Las visualizaciones buscarán presentar la información de manera clara y comprensible, siguiendo los principios de narrativa y comunicación científica de Wilke (2019).
 
+### 3.1.Preguntas exploratorias
+
+Para orientar el análisis de las concentraciones de MP2.5 en Santiago de Chile, se plantean las siguientes preguntas:
+
+1. ¿Cómo varían temporalmente las concentraciones de MP2.5 en Puente Alto, Cerro Navia y Parque O'Higgins durante los períodos de estudio?
+
+2. ¿Qué diferencias se observan en la distribución de las concentraciones de MP2.5 entre los tres sectores seleccionados?
+
+3. ¿Qué semejanzas y diferencias presentan los registros horarios de las estaciones SINCA y los sensores de bajo costo calibrados ubicados en sus proximidades, considerando únicamente los períodos de medición coincidentes?
+
+### 3.2.Visualizaciones exploratorias preliminares
+
+Como primera aproximación al análisis de los datos, se exploraron las concentraciones horarias de MP2.5 registradas en la estación SINCA Parque O'Higgins durante el período disponible de 2026.
+
+Estas visualizaciones representan una exploración inicial de una de las estaciones seleccionadas. En las siguientes etapas del proyecto se incorporarán los registros de Puente Alto y Cerro Navia, así como los sensores de bajo costo calibrados, para examinar las diferencias temporales y espaciales entre los sectores estudiados.
+
+![Figura 5. Variación temporal de las concentraciones horarias de MP2.5 en la estación SINCA Parque O'Higgins durante 2026.](../graficos/serie_temporal_MP25_Parque_OHiggins.png)
+
+&nbsp;
+
+![Figura 6. Concentraciones promedio mensuales de MP2.5 en la estación SINCA Parque O'Higgins durante el período disponible de 2026.](../graficos/promedio_mensual_MP25_Parque_OHiggins.png)
+
+&nbsp;
+
+Como resultado de esta primera exploración, se observa una marcada variabilidad temporal de las concentraciones de MP2.5 en la estación Parque O'Higgins. La serie horaria muestra episodios de concentraciones elevadas durante los meses de otoño e invierno, mientras que los promedios mensuales presentan un aumento hacia junio, mes en el que se registra el valor promedio más alto del período analizado. Estos resultados preliminares sugieren la existencia de diferencias estacionales en las concentraciones de MP2.5
 
 ## 4. Resultados esperados y alcance del análisis
 
