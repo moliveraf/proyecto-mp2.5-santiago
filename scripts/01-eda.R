@@ -4,7 +4,7 @@
 
 library(tidyverse)
 
-setwd("C:/Users/windows/Documents/proyecto-mp2.5-santiago")
+
 getwd()
 
 # Importar datos
