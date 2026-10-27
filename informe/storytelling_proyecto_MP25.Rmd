@@ -1,10 +1,8 @@
 ---
----
 title: "Análisis exploratorio del MP2.5 en Santiago de Chile"
 author: "María Cristina Olivera Ferrer"
 date: "22 de octubre de 2026"
 output: html_document
----
 ---
 
 # ¿Cómo varían las concentraciones de MP2.5 en diferentes sectores de Santiago de Chile?
