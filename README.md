@@ -91,17 +91,16 @@ En esta etapa no se realizan imputaciones ni se atribuye un mecanismo específic
 - `tidyverse` para manipulación de datos y visualización.
 - `lubridate` para procesamiento de fechas y horas.
 - Quarto (`.qmd`) para elaborar y presentar el informe científico en HTML.
-- R Markdown (`.Rmd`) como formato utilizado en la versión inicial del informe.
 - Git y GitHub para control de versiones.
 
 ## Cómo reproducir el análisis preliminar
 
-1.  Descargar o clonar este repositorio.
-2.  Abrir `proyecto-mp2.5-santiago.Rproj` en RStudio.
-3.  Instalar los paquetes `tidyverse` y `lubridate`, si aún no están disponibles.
-4.  Ejecutar el script `scripts/01-eda.R` desde la carpeta principal del proyecto.
-5.  Abrir `informe/storytelling_proyecto_MP25.Rmd`.
-6.  Utilizar **Knit** para generar el documento HTML.
+1. Descargar o clonar este repositorio.
+2. Abrir `proyecto-mp2.5-santiago.Rproj` en RStudio.
+3. Instalar los paquetes `tidyverse` y `lubridate`, si aún no están disponibles.
+4. Ejecutar el script `scripts/01-eda.R` desde la carpeta principal del proyecto.
+5. Abrir `informes/storytelling_proyecto_MP25.qmd` en RStudio.
+6. Utilizar el botón **Render** para generar el informe HTML.
 
 ## Estado actual del proyecto
 
