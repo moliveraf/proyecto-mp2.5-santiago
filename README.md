@@ -121,4 +121,4 @@ Los resultados actuales son descriptivos y exploratorios; no permiten atribuir l
 
 El informe del proyecto fue elaborado utilizando Quarto y puede visualizarse en formato HTML mediante el siguiente enlace:
 
-[Ver informe de MP2.5 en HTML](https://htmlpreview.github.io/?https://github.com/moliveraf/proyecto-mp2.5-santiago/blob/main/informe/storytelling_proyecto_MP25.html)
+[Ver informe de MP2.5 en HTML](https://htmlpreview.github.io/?https://github.com/moliveraf/proyecto-mp2.5-santiago/blob/main/informes/storytelling_proyecto_MP25.html)
