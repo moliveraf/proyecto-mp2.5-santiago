@@ -1,8 +1,8 @@
-
-
 # Análisis exploratorio del MP2.5 en Santiago de Chile
 
 **Autora:** María Cristina Olivera Ferrer
+
+![Vista panorámica de Santiago bajo condiciones de contaminación atmosférica](imagenes/santiago1.jpg)
 
 ## Resumen del proyecto
 
@@ -14,24 +14,28 @@ Mediante herramientas de análisis exploratorio y visualización de datos en R, 
 
 ## Preguntas exploratorias
 
-1. ¿Cómo varían temporalmente las concentraciones de MP2.5 en Puente Alto, Cerro Navia y Parque O'Higgins durante los períodos de estudio?
-2. ¿Qué diferencias se observan en la distribución de las concentraciones de MP2.5 entre los tres sectores seleccionados?
-3. ¿Qué semejanzas y diferencias presentan los registros horarios de las estaciones SINCA y los sensores de bajo costo calibrados ubicados en sus proximidades, considerando únicamente los períodos de medición coincidentes?
+1.  ¿Cómo varían temporalmente las concentraciones de MP2.5 en Puente Alto, Cerro Navia y Parque O'Higgins durante los períodos de estudio?
+2.  ¿Qué diferencias se observan en la distribución de las concentraciones de MP2.5 entre los tres sectores seleccionados?
+3.  ¿Qué semejanzas y diferencias presentan los registros horarios de las estaciones SINCA y los sensores de bajo costo calibrados ubicados en sus proximidades, considerando únicamente los períodos de medición coincidentes?
 
 ## Fuentes de datos
 
 **Red oficial SINCA:** registros horarios de MP2.5 de las estaciones Puente Alto, Cerro Navia y Parque O'Higgins, correspondientes al período comprendido entre el 1 de marzo y el 30 de septiembre de 2026.
 
+![Distribución espacial de las estaciones oficiales SINCA en Santiago de Chile](imagenes/sinca.jpg)
+
 **Sensores de bajo costo calibrados:** registros de cuatro sensores identificados como CH2 y CH3 (Puente Alto), CH4 (Cerro Navia) y CH56 (Parque O'Higgins). Sus períodos de medición serán verificados durante el análisis.
+
+![Distribución espacial de los sensores de bajo costo en Santiago de Chile](imagenes/sensores.jpg)
 
 Fuentes de consulta:
 
-- SINCA: https://sinca.mma.gob.cl/
-- Aire Ciudadano: https://sensor.aireciudadano.com/d/xTdfdbchs/sensores-chs?orgId=1
+- SINCA: <https://sinca.mma.gob.cl/>
+- Aire Ciudadano: <https://sensor.aireciudadano.com/d/xTdfdbchs/sensores-chs?orgId=1>
 
 ## Organización del proyecto
 
-```text
+``` text
 proyecto-mp2.5-santiago/
 ├── datos/
 │   ├── sinca/
@@ -59,7 +63,7 @@ proyecto-mp2.5-santiago/
 Las siguientes variables corresponden a la primera exploración de los registros de la estación SINCA Parque O'Higgins.
 
 | Variable | Descripción |
-|---|---|
+|----|----|
 | `FECHA (YYMMDD)` | Fecha de la medición en el formato original de SINCA. |
 | `HORA (HHMM)` | Hora de la medición. |
 | `Registros validados` | Concentraciones registradas como validadas. |
@@ -91,12 +95,12 @@ En esta etapa no se realizan imputaciones ni se atribuye un mecanismo específic
 
 ## Cómo reproducir el análisis preliminar
 
-1. Descargar o clonar este repositorio.
-2. Abrir `proyecto-mp2.5-santiago.Rproj` en RStudio.
-3. Instalar los paquetes `tidyverse` y `lubridate`, si aún no están disponibles.
-4. Ejecutar el script `scripts/01-eda.R` desde la carpeta principal del proyecto.
-5. Abrir `informe/storytelling_proyecto_MP25.Rmd`.
-6. Utilizar **Knit** para generar el documento HTML.
+1.  Descargar o clonar este repositorio.
+2.  Abrir `proyecto-mp2.5-santiago.Rproj` en RStudio.
+3.  Instalar los paquetes `tidyverse` y `lubridate`, si aún no están disponibles.
+4.  Ejecutar el script `scripts/01-eda.R` desde la carpeta principal del proyecto.
+5.  Abrir `informe/storytelling_proyecto_MP25.Rmd`.
+6.  Utilizar **Knit** para generar el documento HTML.
 
 ## Estado actual del proyecto
 
@@ -112,7 +116,6 @@ Se han elaborado dos visualizaciones preliminares:
 Las siguientes etapas contemplan ampliar el análisis a las estaciones Puente Alto y Cerro Navia y comparar los registros de SINCA con los sensores de bajo costo calibrados, considerando únicamente los períodos de medición coincidentes.
 
 Los resultados actuales son descriptivos y exploratorios; no permiten atribuir las concentraciones observadas a fuentes específicas de emisión.
-
 
 ## Visualización del informe
 
