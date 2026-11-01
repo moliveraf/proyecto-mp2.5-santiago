@@ -82,10 +82,11 @@ En esta etapa no se realizan imputaciones ni se atribuye un mecanismo específic
 
 ## Herramientas utilizadas
 
-- R y RStudio.
+- R y RStudio para el análisis de datos.
 - `tidyverse` para manipulación de datos y visualización.
 - `lubridate` para procesamiento de fechas y horas.
-- R Markdown para la elaboración del storytelling.
+- Quarto (`.qmd`) para elaborar y presentar el informe científico en HTML.
+- R Markdown (`.Rmd`) como formato utilizado en la versión inicial del informe.
 - Git y GitHub para control de versiones.
 
 ## Cómo reproducir el análisis preliminar
@@ -111,3 +112,10 @@ Se han elaborado dos visualizaciones preliminares:
 Las siguientes etapas contemplan ampliar el análisis a las estaciones Puente Alto y Cerro Navia y comparar los registros de SINCA con los sensores de bajo costo calibrados, considerando únicamente los períodos de medición coincidentes.
 
 Los resultados actuales son descriptivos y exploratorios; no permiten atribuir las concentraciones observadas a fuentes específicas de emisión.
+
+
+## Visualización del informe
+
+El informe del proyecto fue elaborado utilizando Quarto y puede visualizarse en formato HTML mediante el siguiente enlace:
+
+[Ver informe de MP2.5 en HTML](https://htmlpreview.github.io/?https://github.com/moliveraf/proyecto-mp2.5-santiago/blob/main/informe/storytelling_proyecto_MP25.html)
