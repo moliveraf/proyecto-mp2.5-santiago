@@ -51,9 +51,10 @@ proyecto-mp2.5-santiago/
 │   ├── sinca.jpg
 │   ├── sensores.jpg
 │   └── fsensor.jpg
-├── informe/
-│   ├── storytelling_proyecto_MP25.Rmd
-│   └── storytelling_proyecto_MP25.html
+├── informes/
+│   ├── storytelling_proyecto_MP25.qmd
+│   ├── storytelling_proyecto_MP25.html
+│   └── storytelling_proyecto_MP25_files/
 ├── proyecto-mp2.5-santiago.Rproj
 └── README.md
 ```
@@ -63,7 +64,7 @@ proyecto-mp2.5-santiago/
 Las siguientes variables corresponden a la primera exploración de los registros de la estación SINCA Parque O'Higgins.
 
 | Variable | Descripción |
-|----|----|
+|------------------------------------|------------------------------------|
 | `FECHA (YYMMDD)` | Fecha de la medición en el formato original de SINCA. |
 | `HORA (HHMM)` | Hora de la medición. |
 | `Registros validados` | Concentraciones registradas como validadas. |
