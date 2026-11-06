@@ -79,93 +79,78 @@ diccionario <- tribble(
   "comuna", "Categórica",
   "Santiago, Cerro Navia, Puente Alto", "No",
   "mp25", "Numérica",
-  "> 0; alerta si = 0 o supera umbral por estación", "Sí",
+  "2-200 µg/m3; revisar <2 o >200", "Sí",
   "fecha_hora", "Fecha-hora",
   "01/03/2026 al 30/09/2026", "No"
 )
 
+# Mostrar el diccionario
 diccionario
 
-# 7. DEFINIR UMBRALES DE ALERTA POR ESTACIÓN SINCA
-
-umbrales_mp25 <- tribble(
-  ~comuna,       ~umbral,
-  "Cerro Navia", 114.1,
-  "Santiago",     85.3,
-  "Puente Alto",  75.4
-)
-
-# Mostrar los umbrales
-umbrales_mp25
-
-# 8. CREAR FUNCIÓN DE VALIDACIÓN DE DATOS
+# 7. CREAR FUNCIÓN DE VALIDACIÓN DE DATOS
 
 validar_mp25 <- function(datos) {
 
-  datos |>
-    left_join(umbrales_mp25, by = "comuna") |>
-    mutate(
-      # Comprobar que la comuna sea válida
-      comuna_ok = !is.na(comuna) &
-        comuna %in% c("Santiago", "Cerro Navia", "Puente Alto"),
+  # Estructural: comunas permitidas (sin NA)
+  comuna_ok <- all(
+    !is.na(datos$comuna) &
+      datos$comuna %in% c(
+        "Santiago", "Cerro Navia", "Puente Alto"
+      )
+  )
 
-      # Comprobar que la fecha esté en el período estudiado
-      fecha_ok = !is.na(fecha_hora) &
-        as.Date(fecha_hora) >= as.Date("2026-03-01") &
-        as.Date(fecha_hora) <= as.Date("2026-09-30"),
+  # Contenido: concentraciones entre 2 y 200 µg/m3
+  # Se permiten valores NA
+  mp25_ok <- all(
+    datos$mp25 >= 2 & datos$mp25 <= 200,
+    na.rm = TRUE
+  )
 
-      # Comprobar concentraciones negativas
-      mp25_ok = is.na(mp25) | mp25 >= 0,
+  # Contenido: fechas dentro del periodo estudiado
+  # No se permiten valores NA
+  fecha_ok <- all(
+    !is.na(datos$fecha_hora) &
+      as.Date(datos$fecha_hora) >= as.Date("2026-03-01") &
+      as.Date(datos$fecha_hora) <= as.Date("2026-09-30")
+  )
 
-      # Identificar concentraciones iguales a cero
-      alerta_cero = !is.na(mp25) & mp25 == 0,
+  # Mostrar resultados
+  marca <- function(x) ifelse(isTRUE(x), "OK", "FALLA")
 
-      # Identificar concentraciones elevadas
-      alerta_alta = !is.na(mp25) &
-        !is.na(umbral) & mp25 > umbral
-    )
+  cat("Comuna valida (estructural): ",
+      marca(comuna_ok), "\n")
+
+  cat("MP2.5 entre 2 y 200 (contenido): ",
+      marca(mp25_ok), "\n")
+
+  cat("Fecha valida (contenido): ",
+      marca(fecha_ok), "\n")
 }
 
-# 9. APLICAR LA FUNCIÓN DE VALIDACIÓN
+# 8. APLICAR LA FUNCIÓN DE VALIDACIÓN
 
-datos_validados <- validar_mp25(datos_mp25)
+validar_mp25(datos_mp25)
 
-# Mostrar las primeras 10 observaciones y sus resultados
-datos_validados |>
-  select(
-    comuna, fecha_hora, mp25, umbral,
-    comuna_ok, fecha_ok, mp25_ok,
-    alerta_cero, alerta_alta
-  ) |>
-  head(10)
+# 9. IDENTIFICAR REGISTROS FUERA DEL RANGO
 
-# 10. RESUMEN DE VALIDACIÓN POR COMUNA
+datos_flags <- datos_mp25 |>
+  mutate(
+    alerta_mp25 = !is.na(mp25) &
+      (mp25 < 2 | mp25 > 200)
+  )
 
-resumen_validacion <- datos_validados |>
+# Contar alertas por comuna
+datos_flags |>
   group_by(comuna) |>
   summarise(
-    total_registros = n(),
-    fechas_invalidas = sum(!fecha_ok),
-    mp25_negativos = sum(!mp25_ok),
-    mp25_faltantes = sum(is.na(mp25)),
-    alertas_cero = sum(alerta_cero),
-    alertas_altas = sum(alerta_alta),
+    menores_2 = sum(mp25 < 2, na.rm = TRUE),
+    mayores_200 = sum(mp25 > 200, na.rm = TRUE),
+    total_alertas = sum(alerta_mp25),
     .groups = "drop"
   )
 
-# Mostrar el resumen
-resumen_validacion
+# 10. IDENTIFICAR CONCENTRACIONES SUPERIORES A 200
 
-# Mostrar las alertas por estación SINCA
-
-resumen_validacion |>
-  select(comuna, alertas_cero, alertas_altas)
-
-# 11. COMPROBAR LA VALIDACIÓN DE LAS COMUNAS
-
-datos_validados |>
-  summarise(
-    total_registros = n(),
-    comunas_validas = sum(comuna_ok, na.rm = TRUE),
-    comunas_invalidas = sum(!comuna_ok, na.rm = TRUE)
-  )
+datos_flags |>
+  filter(mp25 > 200) |>
+  select(comuna, fecha_hora, mp25)
